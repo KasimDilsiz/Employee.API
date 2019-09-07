@@ -1,8 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"github.com/Employee.API/apiRoots"
 	"github.com/Employee.API/dbConfig"
+	"github.com/Employee.API/models"
 	"github.com/gin-gonic/gin"
 )
 
@@ -11,9 +13,13 @@ func main() {
 
 	dbConfig.InitDB()
 
+	if !dbConfig.DB.HasTable(models.Employee{}) {
+		dbConfig.DB.CreateTable(models.Employee{})
+		fmt.Println("Employee table created")
+	}
 	api := app.Group("/api")
 
 	apiRoots.EmployeeAPI(api)
 
-	app.Run(":1111")
+	_ = app.Run(fmt.Sprintf(":1111"))
 }
