@@ -1,7 +1,7 @@
 package apiRoots
 
 import (
-	"github.com/PlayList.API/apiControllers"
+	"github.com/Employee.API/apiControllers"
 	"github.com/gin-gonic/gin"
 )
 

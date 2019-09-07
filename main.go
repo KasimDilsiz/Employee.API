@@ -1,16 +1,19 @@
 package main
 
 import (
-	"github.com/PlayList.API/apiRoots"
+	"github.com/Employee.API/apiRoots"
+	"github.com/Employee.API/dbConfig"
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
 	app := gin.Default()
 
-	api := app.Group("/kasim")
+	dbConfig.InitDB()
+
+	api := app.Group("/api")
 
 	apiRoots.EmployeeAPI(api)
 
-	app.Run("1111")
+	app.Run(":1111")
 }
