@@ -15,8 +15,8 @@ func main() {
 
 	if !dbConfig.DB.HasTable(models.Employee{}) {
 		dbConfig.DB.CreateTable(models.Employee{})
-		fmt.Println("Employee table created")
 	}
+
 	api := app.Group("/api")
 
 	apiRoots.EmployeeAPI(api)

@@ -2,6 +2,7 @@ package models
 
 import "time"
 
+// Employee TABLE
 type Employee struct {
 	ID             int       `json:"id" gorm:"primary_key"`
 	EmployeeName   string    `json:"employee_name"`
