@@ -15,14 +15,22 @@ func GetEmployee(c *gin.Context) {
 	var employees []models.Employee
 	err := dbConfig.DB.Find(&employees).Error
 	if err != nil {
-		c.JSON(http.StatusBadRequest, "Hatalı gönderim yaptınız. Hata: " + err.Error())
+		c.JSON(http.StatusBadRequest, "Hatalı gönderim yaptınız. Hata: "+err.Error())
 		return
 	}
 	c.JSON(http.StatusOK, &employees)
 }
 
-func GetIdEmployee(c *gin.Context) {
+func GetEmployeeById(c *gin.Context) {
+	var employee models.Employee
+	id := c.Param("id")
 
+	err := dbConfig.DB.Where(id).Find(&employee).Error
+	if err != nil {
+		c.JSON(http.StatusBadRequest, "Hatalı gönderim yaptınız. Hata: "+err.Error())
+		return
+	}
+	c.JSON(http.StatusOK, &employee)
 }
 
 func PutEmployee(c *gin.Context) {

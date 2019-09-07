@@ -13,7 +13,7 @@ func EmployeeAPI(api *gin.RouterGroup) {
 	// Read employee model             (READ)
 	api.GET("/employeesGET", apiControllers.GetEmployee)         // localhost:1111/api//employeeGET
 	// Read id option employee model   (READ)
-	api.GET("/employeesGET:id", apiControllers.GetIdEmployee)    // localhost:1111/api//employeeGET:id
+	api.GET("/employeeGET/:id", apiControllers.GetEmployeeById)    // localhost:1111/api//employeeGET:id
 	// Update employee model           (UPDATE)
 	api.PUT("/employeeUpdate", apiControllers.PutEmployee)       // localhost:1111/api//employeeUpdate
 	// Delete employee model           (DELETE)
