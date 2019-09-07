@@ -37,6 +37,10 @@ func PutEmployee(c *gin.Context) {
 
 }
 
-func DeleteEmployee(c *gin.Context) {
+func DeleteEmployees(c *gin.Context) {
+
+}
+
+func DeleteEmployeeById(c *gin.Context) {
 
 }
