@@ -10,7 +10,7 @@ func main() {
 
 	api := app.Group("/kasim")
 
-	apiRoots.Employee(api)
+	apiRoots.EmployeeAPI(api)
 
 	app.Run("1111")
 }
