@@ -38,9 +38,24 @@ func PutEmployee(c *gin.Context) {
 }
 
 func DeleteEmployees(c *gin.Context) {
+	var employee models.Employee
 
+	err := dbConfig.DB.Delete(&employee).Error
+	if err != nil {
+		c.JSON(http.StatusBadRequest, "Hatalı gönderim yaptınız. Hata: "+err.Error())
+		return
+	}
+	c.JSON(http.StatusOK, "Silme İşlemi Başarılı")
 }
 
 func DeleteEmployeeById(c *gin.Context) {
+	var employee models.Employee
+
+	err := dbConfig.DB.Where(id).Delete(&employee).Error
+	if err != nil {
+		c.JSON(http.StatusBadRequest, "Hatalı gönderim yaptınız. Hata: "+err.Error())
+		return
+	}
+	c.JSON(http.StatusOK, "Silme İşlemi Başarılı")
 
 }
